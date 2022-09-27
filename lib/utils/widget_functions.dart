@@ -27,3 +27,13 @@ Widget companyLogo() {
           ])),
     );
   }
+
+
+  Widget bgImage(opacity) {
+    return Opacity(
+      opacity: opacity,
+      child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12.0),
+                    child: Image.asset('assets/images/loadingImage.jpg')),
+    );
+  }

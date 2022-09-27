@@ -19,12 +19,10 @@ class LandingPage extends StatelessWidget {
           body: Container(
             margin: const EdgeInsets.all(26),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start, 
               children: [
                 companyLogo(),
-                ClipRRect(
-                    borderRadius: BorderRadius.circular(12.0),
-                    child: Image.asset('assets/images/loadingImage.jpg')),
+                bgImage(1.0),
                 welcomeText(),
                 actionButtons(),
                 guestLogin()
@@ -33,6 +31,8 @@ class LandingPage extends StatelessWidget {
           )),
     );
   }
+
+
 
   Padding guestLogin() {
     return Padding(
