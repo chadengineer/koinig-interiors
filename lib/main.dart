@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:konig_interiors/pages/landing_page.dart';
-import 'package:konig_interiors/pages/sign_in.dart';
+import 'package:konig_interiors/screens/landing_screen.dart';
+import 'package:konig_interiors/screens/sign_in.dart';
 
 void main() => runApp(MaterialApp(
       title: 'könig interiors',

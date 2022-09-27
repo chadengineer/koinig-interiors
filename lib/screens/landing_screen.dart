@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
+import 'package:konig_interiors/utils/widget_functions.dart';
+import 'package:konig_interiors/utils/constants.dart';
 
 class LandingPage extends StatelessWidget {
   final TapGestureRecognizer _gestureRecognizer = TapGestureRecognizer()
@@ -8,30 +9,28 @@ class LandingPage extends StatelessWidget {
       debugPrint('Guest login please');
     };
 
-   LandingPage({super.key});
+  LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: BRAND_GREY,
           body: Container(
-        color: const Color(0xff393E41),
-        child: Container(
-          margin: const EdgeInsets.all(26),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              companyLogo(),
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0),
-                  child: Image.asset('assets/images/loadingImage.jpg')),
-              welcomeText(),
-              actionButtons(),
-              guestLogin()
-            ],
-          ),
-        ),
-      )),
+            margin: const EdgeInsets.all(26),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                companyLogo(),
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(12.0),
+                    child: Image.asset('assets/images/loadingImage.jpg')),
+                welcomeText(),
+                actionButtons(),
+                guestLogin()
+              ],
+            ),
+          )),
     );
   }
 
@@ -51,7 +50,7 @@ class LandingPage extends StatelessWidget {
                 TextSpan(
                     text: 'guest',
                     style: const TextStyle(
-                        color: Color(0xffC0DA74),
+                        color: BRAND_GREEN,
                         decoration: TextDecoration.underline),
                     recognizer: _gestureRecognizer)
               ]),
@@ -69,26 +68,25 @@ class LandingPage extends StatelessWidget {
           child: Container(
             width: 130,
             height: 48,
-            color: const Color(0xffC0DA74),
+            color: BRAND_GREEN,
             child: TextButton(
               child: const Text(
                 'Register',
                 style: TextStyle(
-                  fontSize: 18,
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.w700,
-                  color: Color.fromARGB(255, 73, 73, 73),
-                ),
+                    fontSize: 18,
+                    letterSpacing: 1,
+                    fontWeight: FontWeight.w700,
+                    color: BRAND_GREY),
               ),
               onPressed: () {
-               // Navigator.pushNamed(context, routeName)
+                // Navigator.pushNamed(context, routeName)
               },
             ),
           ),
         ),
         Container(
           decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xffEEEEEE), width: 1),
+              border: Border.all(color: BRAND_WHITE, width: 1),
               borderRadius: BorderRadius.circular(14)),
 
           width: 130,
@@ -98,11 +96,10 @@ class LandingPage extends StatelessWidget {
             child: const Text(
               'Sign In',
               style: TextStyle(
-                fontSize: 18,
-                letterSpacing: 1,
-                fontWeight: FontWeight.w700,
-                color: Color(0xffEEEEEE),
-              ),
+                  fontSize: 18,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w700,
+                  color: BRAND_WHITE),
             ),
             onPressed: () {},
           ),
@@ -129,7 +126,7 @@ class LandingPage extends StatelessWidget {
                       '\nWelcome to König Interiors\nDream work setup for every home',
                   style: TextStyle(
                       fontSize: 12,
-                      color: Color(0xffA9A9A9),
+                      color: BRAND_LIGHTGREY,
                       fontWeight: FontWeight.normal,
                       height: 1.4)),
             ],
@@ -139,31 +136,6 @@ class LandingPage extends StatelessWidget {
       ),
     );
   }
-
-  Container companyLogo() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-      decoration: BoxDecoration(
-          border: Border.all(width: 1.0, color: const Color(0xffEEEEEE)),
-          borderRadius: BorderRadius.circular(8.0)),
-      //color: Colors.white,
-      padding: const EdgeInsets.all(6.0),
-      child: RichText(
-          text: const TextSpan(
-              text: ' könig ',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.bold,
-                color: Color(0xffC0DA74),
-                fontSize: 12,
-                letterSpacing: 1,
-              ),
-              children: [
-            TextSpan(
-                text: 'interiors ',
-                style: TextStyle(
-                    color: Colors.white, fontWeight: FontWeight.normal))
-          ])),
-    );
-  }
+  
 }
+
