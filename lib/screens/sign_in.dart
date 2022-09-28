@@ -15,42 +15,62 @@ class SignIn extends StatelessWidget {
       body: Container(
           margin: const EdgeInsets.all(26),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               companyLogo(),
               Stack(
                 alignment: Alignment.center,
                 children: [
                   bgImage(0.2),
-                  Container(
+                  SizedBox(
                       height: 240,
                       width: 300,
                       //color: Colors.lightBlue,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const [
-                          Text(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
                             'Welcome back!',
                             style: TextStyle(
                                 color: BRAND_WHITE,
                                 fontFamily: 'Poppins',
                                 fontSize: 22),
                           ),
-                          BorderBox(
-                            child: Text('Enter username'),
-                            width: 300,
-                            height: 55,
-                          ),
-                          BorderBox(
-                            child: Text('Password'),
-                            width: 300,
-                            height: 55,
-                          )
+                          userInfo('Enter username'),
+                          userInfo('Password'),
                         ],
                       ))
                 ],
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(0, 110, 0, 0),
+                child: const BorderBox(
+                  width: 300,
+                  child: Text(
+                    'Sign In',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w700,
+                        color: BRAND_GREY,
+                        fontSize: 18),
+                  ),
+                ),
               )
             ],
           )),
     ));
+  }
+
+  TextField userInfo(hintText) {
+    return TextField(
+      decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+          hintText: hintText,
+          filled: true,
+          fillColor: const Color.fromARGB(138, 243, 243, 243)),
+    );
   }
 }

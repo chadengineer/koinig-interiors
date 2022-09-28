@@ -17,15 +17,17 @@ class BorderBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: (color ?? BRAND_WHITE),
-          border: Border.all(width: 2.0, color: BRAND_GREY)),
-      child: child,
-      padding: EdgeInsets.all(16),
+    return Center(
+      child: Container(
+        width: width,
+        height: height ?? 58,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: (color ?? BRAND_GREEN),
+            border: Border.all(width: 0, color: BRAND_GREY)),
+        child: child,
+        padding: EdgeInsets.all(16),
+      ),
     );
   }
 }

@@ -37,3 +37,5 @@ Widget companyLogo() {
                     child: Image.asset('assets/images/loadingImage.jpg')),
     );
   }
+
+  

@@ -5,9 +5,9 @@ import 'package:konig_interiors/screens/sign_in.dart';
 void main() => runApp(MaterialApp(
       title: 'könig interiors',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/signin',
+      initialRoute: '/',
       routes: {
         '/': (context) => LandingPage(),
-        '/signin': (context) => SignIn()
+        '/signin': (context) => const SignIn()
       },
     ));

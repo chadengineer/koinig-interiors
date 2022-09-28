@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:konig_interiors/screens/sign_in.dart';
 import 'package:konig_interiors/utils/widget_functions.dart';
 import 'package:konig_interiors/utils/constants.dart';
 
@@ -13,26 +14,27 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: BRAND_GREY,
+          backgroundColor: BRAND_GREY,
           body: Container(
+            width: size.width,
+            height: size.height,
             margin: const EdgeInsets.all(26),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start, 
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 companyLogo(),
                 bgImage(1.0),
                 welcomeText(),
-                actionButtons(),
+                ActionButtons(),
                 guestLogin()
               ],
             ),
           )),
     );
   }
-
-
 
   Padding guestLogin() {
     return Padding(
@@ -59,7 +61,43 @@ class LandingPage extends StatelessWidget {
     );
   }
 
-  Row actionButtons() {
+  Center welcomeText() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(45, 45, 45, 60),
+        child: RichText(
+          text: const TextSpan(
+            text: 'Hello!',
+            style: TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                height: 2),
+            children: [
+              TextSpan(
+                  text:
+                      '\nWelcome to König Interiors\nDream work setup for every home',
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: BRAND_LIGHTGREY,
+                      fontWeight: FontWeight.normal,
+                      height: 1.4)),
+            ],
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+}
+
+class ActionButtons extends StatelessWidget {
+  const ActionButtons({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -101,41 +139,13 @@ class LandingPage extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   color: BRAND_WHITE),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => const SignIn()));
+            },
           ),
         )
       ],
     );
   }
-
-  Center welcomeText() {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(45, 45, 45, 60),
-        child: RichText(
-          text: const TextSpan(
-            text: 'Hello!',
-            style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                height: 2),
-            children: [
-              TextSpan(
-                  text:
-                      '\nWelcome to König Interiors\nDream work setup for every home',
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: BRAND_LIGHTGREY,
-                      fontWeight: FontWeight.normal,
-                      height: 1.4)),
-            ],
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
-  
 }
-
